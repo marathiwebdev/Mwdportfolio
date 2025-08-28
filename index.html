@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Swapnil Patil — Software Developer</title>
+  <style>
+    /* ====== CSS START ====== */
+    body {
+      margin: 0;
+      font-family: Poppins, sans-serif;
+      background: #0b1026;
+      color: #e6e9f5;
+    }
+    .container { width: 90%; max-width: 1100px; margin: auto; }
+    .section { padding: 60px 0; }
+
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px; }
+    .logo { font-weight: bold; font-size: 1.5rem; color: #8a7dff; text-decoration: none; }
+    .nav__menu { list-style: none; display: flex; gap: 20px; }
+    .nav__menu a { color: white; text-decoration: none; transition: 0.3s; }
+    .nav__menu a:hover { color: #8a7dff; }
+
+    .hero { display: flex; justify-content: space-between; align-items: center; padding: 60px 0; flex-wrap: wrap; }
+    .hero__text { flex: 1; }
+    .hero__text h1 { font-size: 2.5rem; margin: 0 0 10px; }
+    .accent { color: #8a7dff; }
+    .subtitle { font-size: 1.2rem; margin-bottom: 20px; }
+    .btn { background: #8a7dff; color: #fff; padding: 10px 16px; border-radius: 8px; text-decoration: none; margin-right: 10px; display: inline-block; }
+    .hero__pic { flex: 1; text-align: center; }
+    .hero__pic img { width: 220px; border-radius: 12px; }
+
+    .skills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .skills li { background: #12183a; padding: 10px 15px; border-radius: 8px; list-style: none; }
+
+    #projectGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card { background: #12183a; padding: 16px; border-radius: 10px; }
+    .card h3 { margin: 0 0 10px; }
+
+    .site-footer { text-align: center; padding: 20px; color: #b6bcde; }
+    /* ====== CSS END ====== */
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a href="#top" class="logo">SP.</a>
+      <ul class="nav__menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero container">
+      <div class="hero__text">
+        <h1>Hi, I'm <span class="accent">Swapnil Patil</span></h1>
+        <p class="subtitle">Software Developer • Front-end & Apps</p>
+        <a class="btn" href="#projects">View My Work</a>
+      </div>
+      <div class="hero__pic">
+        <img src="https://via.placeholder.com/220x220.png?text=Profile" alt="Swapnil profile" />
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section container" id="about">
+      <h2>About</h2>
+      <p>Passionate web developer who loves building user-friendly and responsive websites. 
+         Strong foundation in front-end technologies, enjoys transforming creative ideas into working solutions. 
+         Always learning and building.</p>
+    </section>
+
+    <section class="section container" id="skills">
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li>
+        <li>Node.js</li><li>Git</li><li>GitHub</li><li>Firebase</li>
+      </ul>
+    </section>
+
+    <section class="section container" id="projects">
+      <h2>Projects</h2>
+      <div id="projectGrid"></div>
+    </section>
+
+    <section class="section container" id="contact">
+      <h2>Contact</h2>
+      <p>📧 <a href="mailto:swapnil.dev.contact@gmail.com">swapnil.dev.contact@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Swapnil Patil</p>
+  </footer>
+
+  <script>
+    // ====== JS START ======
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const PROJECTS = [
+      {
+        title: "Choupati Tarun Mandal",
+        desc: "Mandal event website with Firebase setup.",
+        live: "#",
+        code: "#"
+      },
+      {
+        title: "Mandalsaving",
+        desc: "Saving/expense tracker deployed on GitHub Pages.",
+        live: "https://swapnilpatil001.github.io/Mandalsaving/",
+        code: "#"
+      },
+      {
+        title: "Smart Paisa",
+        desc: "Money-saving Instagram micro-site.",
+        live: "#",
+        code: "#"
+      }
+    ];
+
+    const grid = document.getElementById("projectGrid");
+    PROJECTS.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML = `
+        <h3>${p.title}</h3>
+        <p>${p.desc}</p>
+        <a class="btn" href="${p.live}" target="_blank">Live</a>
+        <a class="btn" href="${p.code}" target="_blank">Code</a>
+      `;
+      grid.appendChild(div);
+    });
+    // ====== JS END ======
+  </script>
+</body>
+</html>
