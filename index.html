@@ -20,33 +20,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* === Variables, Layout & Styling (unchanged) === */
-    :root{--bg:#0b0e14;--card:#121622;--muted:#9aa4b2;--text:#f4f6fb;--brand:#5b8cff;--brand-2:#7b5bff;--accent:#18d39e;--border:#1b2130;--shadow:0 10px 30px rgba(0,0,0,.35);--radius:16px;--radius-sm:12px;}
-    *{box-sizing:border-box} html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b0e14 0%,#0c1020 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;scroll-behavior:smooth}
-    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+    :root{
+      --bg:#0b0e14;
+      --card:#121622;
+      --muted:#9aa4b2;
+      --text:#f4f6fb;
+      --brand:#5b8cff;
+      --brand-2:#7b5bff;
+      --accent:#18d39e;
+      --border: #1b2130;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --radius-sm:12px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b0e14 0%,#0c1020 100%);color:var(--text);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
     .container{width:min(1150px,92%);margin:0 auto}
-    .nav{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+
+    /* Navbar */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.7);backdrop-filter: blur(10px);border-bottom:1px solid var(--border)}
     .nav .row{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
-    .brand img{width:34px;height:34px;border-radius:10px;object-fit:cover}
+    .logo img{width:34px;height:34px;border-radius:10px;object-fit:cover}
     .menu{display:flex;gap:18px;align-items:center}
     .menu a{padding:10px 12px;border-radius:10px;color:var(--muted)}
     .menu a:hover{background:#151a27;color:var(--text)}
     .cta{padding:10px 14px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));font-weight:700}
     .cta:hover{filter:brightness(1.08)}
-    .hero{padding:64px 0 32px} .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
+
+    /* Hero */
+    .hero{padding:64px 0 32px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
     .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;border:1px solid var(--border);color:var(--muted);margin-bottom:18px}
-    .title{font-size:clamp(28px,6vw,54px);line-height:1.05;margin:0 0 14px;font-weight:800}
-    .subtitle{color:var(--muted);font-size:clamp(14px,2.2vw,18px);max-width:650px;margin-bottom:22px}
+    .title{font-size: clamp(28px, 6vw, 54px);line-height:1.05;margin:0 0 14px;font-weight:800}
+    .subtitle{color:var(--muted);font-size: clamp(14px, 2.2vw, 18px);max-width:650px;margin-bottom:22px}
     .btns{display:flex;gap:12px;flex-wrap:wrap}
     .btn{padding:12px 16px;border-radius:12px;border:1px solid var(--border);font-weight:700}
     .btn.primary{border:none;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
     .btn.wa{border-color:#1f2a3f}
-    .hero-card{background:radial-gradient(1200px 400px at 20% -10%,rgba(123,91,255,.25),transparent 50%),var(--card);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:18px}
+    .hero-card{background:radial-gradient(1200px 400px at 20% -10%, rgba(123,91,255,.25), transparent 50%), var(--card);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:18px}
     .kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
     .kpi .item{background:#0f1422;border:1px solid var(--border);border-radius:12px;padding:14px}
     .kpi .num{font-size:22px;font-weight:800}
     .kpi .lbl{font-size:12px;color:var(--muted)}
+
+    /* Sections */
     section{padding:48px 0;border-top:1px solid var(--border)}
     .sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:10px}
     .sec-title{font-size:24px;font-weight:800;margin:0}
@@ -56,16 +76,24 @@
     .grid.cols-2{grid-template-columns:repeat(2,1fr)}
     .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px;box-shadow:var(--shadow)}
     .chip{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:12px}
+
+    /* Portfolio */
     .work{display:flex;flex-direction:column;gap:12px}
     .work img{border-radius:12px;border:1px solid var(--border)}
     .work .meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
     .work .meta .name{font-weight:700}
     .work .meta .tags{display:flex;gap:6px;flex-wrap:wrap}
+
+    /* Footer */
     footer{padding:28px 0;border-top:1px solid var(--border);color:var(--muted);font-size:14px}
-    .socials{display:flex;gap:12px;flex-wrap:wrap}
-    .socials a{padding:10px 12px;border:1px solid var(--border);border-radius:10px}
     .small{font-size:12px;color:var(--muted)}
-    @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.grid.cols-3{grid-template-columns:1fr}.grid.cols-2{grid-template-columns:1fr}}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-2{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -74,30 +102,79 @@
   <nav class="nav">
     <div class="container row">
       <div class="brand">
-        <img src="IMG_0157.jpeg" alt="Logo">
+        <div class="logo">
+          <img src="IMG_0157.jpeg" alt="Marathi Web Dev Logo">
+        </div>
         <div>Marathi Web Dev</div>
       </div>
       <div class="menu">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#work">Portfolio</a>
-        <a href="#collab">Collab</a>
         <a href="#contact" class="cta">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- ================= HERO ================= -->
-  <!-- (unchanged hero section) -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">🚀 मराठीत प्रो वेबडेव्ह • इन्फ्लुएंसर साइट्स</div>
+        <h1 class="title">तुमच्या ब्रँडला <span style="background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;">वेबसाईटची ताकद</span> द्या.</h1>
+        <p class="subtitle">मी <strong>Marathi Web Dev</strong> — मराठीत प्रोफेशनल, जलद आणि मोबाईल-फ्रेंडली वेबसाईट्स.</p>
+        <div class="btns">
+          <a class="btn primary" href="https://instagram.com/marathi_webdev" target="_blank" rel="noopener">📸 Instagram</a>
+          <a class="btn wa" href="https://wa.me/919999999999" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="btn" href="#work">🔎 काम पाहा</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="IMG_0157.jpeg" alt="Showcase UI" />
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="container">
+      <div class="sec-head">
+        <h2 class="sec-title">माझ्याबद्दल</h2>
+      </div>
+      <p>मी <strong>Marathi Web Dev</strong> — एक वेब डेव्हलपर आणि इन्फ्लुएंसर. मला वेबसाईट्स तयार करणं आणि ब्रँड्सना डिजिटल ओळख देणं आवडतं.  
+      माझ्या वेबसाईट्स <b>मराठीत</b> प्रोफेशनल, आधुनिक आणि मोबाईल फ्रेंडली असतात.</p>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services">
+    <div class="container">
+      <div class="sec-head">
+        <h2 class="sec-title">सेवा (Services)</h2>
+      </div>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>🌐 वेबसाईट डेव्हलपमेंट</h3>
+          <p>Responsive, SEO Friendly व आधुनिक डिझाईन असलेली वेबसाईट तयार करतो.</p>
+        </div>
+        <div class="card">
+          <h3>📱 अॅप डेव्हलपमेंट</h3>
+          <p>Android व iOS साठी हलकी व उपयुक्त अॅप्स तयार करतो.</p>
+        </div>
+        <div class="card">
+          <h3>📊 डिजिटल ब्रँडिंग</h3>
+          <p>ब्रँडसाठी प्रोफेशनल मीडिया किट व ऑनलाईन ओळख तयार करतो.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ================= PORTFOLIO ================= -->
   <section id="work">
     <div class="container">
       <div class="sec-head">
         <h2 class="sec-title">पोर्टफोलिओ (Portfolio)</h2>
-        <p class="sec-sub">निवडक कामे • Screens/Links</p>
       </div>
-
       <div class="grid cols-3">
         <div class="card work">
           <img src="IMG_0155.jpeg" alt="Choupati Tarun Mandal" />
@@ -108,9 +185,7 @@
               <span class="chip">Marathi</span>
             </div>
           </div>
-          <a class="btn" href="https://swapnilpatil001.github.io/choupati-tarun-mandal/" target="_blank" rel="noopener">Preview</a>
         </div>
-
         <div class="card work">
           <img src="IMG_0156.jpeg" alt="Mandalsaving" />
           <div class="meta">
@@ -120,9 +195,7 @@
               <span class="chip">Auth</span>
             </div>
           </div>
-          <a class="btn" href="https://swapnilpatil001.github.io/Mandalsaving/" target="_blank" rel="noopener">Preview</a>
         </div>
-
         <div class="card work">
           <img src="IMG_0066.jpeg" alt="Trawise" />
           <div class="meta">
@@ -132,12 +205,36 @@
               <span class="chip">Dashboard</span>
             </div>
           </div>
-          <a class="btn" href="https://swapnilpatil001.github.io/Trawise/" target="_blank" rel="noopener">Preview</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- बाकी sections (About, Services, Collab, Contact, Footer, JS) तसंच राहतील -->
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="container">
+      <div class="sec-head">
+        <h2 class="sec-title">संपर्क (Contact)</h2>
+      </div>
+      <p>📩 माझ्याशी संपर्क साधा:</p>
+      <ul>
+        <li>📧 Email: <a href="mailto:swapnil@example.com">swapnil@example.com</a></li>
+        <li>📸 Instagram: <a href="https://instagram.com/marathi_webdev" target="_blank">@marathi_webdev</a></li>
+        <li>💬 WhatsApp: <a href="https://wa.me/919999999999" target="_blank">+91 99999 99999</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Marathi Web Dev • All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
